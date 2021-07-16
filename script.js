@@ -10,7 +10,6 @@
 	const Canvas = require('canvas');
 	const express = require('express');
 	const http = require('http');
-	const routes = require('./src/routes');
 	/*MODULES*/
 
 	/*VARIABLES*/
