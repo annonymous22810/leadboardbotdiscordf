@@ -702,7 +702,5 @@ app.set('port', port);
 httpServer.listen(port, error => {
   if (error) throw error;
 
-  routes.set(app, express);
-
   console.log(`Website started on port ${port}.`);
 });
