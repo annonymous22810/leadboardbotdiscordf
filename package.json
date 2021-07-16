@@ -16,7 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node script.js"
+    "start": "npm start"
   },
   "author": "",
   "license": "ISC"
