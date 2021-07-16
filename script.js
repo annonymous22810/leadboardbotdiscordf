@@ -243,7 +243,7 @@ function EZ_Score(a) {
     return a;
     }
 };
-client.login('ODY1NjU0MTUzODI1MDkxNTg0.YPHJQQ.ObXowF9pUHLfPIqSxVLrvhsUiR8').then((token) => {
+client.login(process.env.TOKEN).then((token) => {
 client.user.setPresence({
   game: { name: '.lb [args]' },
   status: 'online',
