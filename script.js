@@ -8,6 +8,9 @@
 	const axios = require('axios');
 	const {createCanvas, Image, loadImage } = require("canvas");
 	const Canvas = require('canvas');
+	const express = require('express');
+	const http = require('http');
+	const routes = require('./src/routes');
 	/*MODULES*/
 
 	/*VARIABLES*/
@@ -689,3 +692,17 @@ console.log(`Command: ${server.toLowerCase()} used by: `+ message.author.usernam
 					}, 500)
 					})
 }
+
+const app = express();
+const httpServer = http.Server(app);
+const port = process.env.PORT || 5000;
+
+app.set('port', port);
+
+httpServer.listen(port, error => {
+  if (error) throw error;
+
+  routes.set(app, express);
+
+  console.log(`Website started on port ${port}.`);
+});
