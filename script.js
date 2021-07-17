@@ -694,5 +694,4 @@ console.log(`Command: ${server.toLowerCase()} used by: `+ message.author.usernam
 
 http.createServer(function (req, res) {
 	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.send('it is running\n'); 
 }).listen(process.env.PORT || 5000); 
