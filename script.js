@@ -692,14 +692,12 @@ console.log(`Command: ${server.toLowerCase()} used by: `+ message.author.usernam
 					})
 }
 
-const app = express();
-const httpServer = http.Server(app);
-const port = process.env.PORT || 5000;
+const express = require("express"),
+    webApp = express();
+// later ill do config for listener
 
-app.set('port', port);
+const listener = webApp.listen(2002, () => {
+    webApp.use(express.static("server"));
 
-httpServer.listen(port, error => {
-  if (error) throw error;
-
-  console.log(`Website started on port ${port}.`);
+    console.log("listenings");
 });
