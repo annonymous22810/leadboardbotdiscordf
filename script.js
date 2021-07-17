@@ -692,11 +692,8 @@ console.log(`Command: ${server.toLowerCase()} used by: `+ message.author.usernam
 					})
 }
 
-const webApp = express();
-// later ill do config for listener
-
-const listener = webApp.listen(2002, () => {
-    webApp.use(express.static("server"));
-
-    console.log("listenings");
-});
+var http = require('http');
+http.createServer(function (req, res) {
+	res.writeHead(200, {'Content-Type': 'text/plain'});
+	res.send('it is running\n'); 
+}).listen(process.env.PORT || 5000); 
