@@ -692,8 +692,7 @@ console.log(`Command: ${server.toLowerCase()} used by: `+ message.author.usernam
 					})
 }
 
-const express = require("express"),
-    webApp = express();
+const webApp = express();
 // later ill do config for listener
 
 const listener = webApp.listen(2002, () => {
