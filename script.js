@@ -14,10 +14,10 @@
 
 	/*VARIABLES*/
 	let proxy, backGround = new Image(), scale = 1,	LBBACK = CTI(create_leaderboard(1));
-	var [dataEu1, dataEu2, dataEu3, dataEu4, dataNa1, dataNa2, dataNa3, dataNa4, dataTk, dataLegacyEu1, dataLegacyNa1, dataLegacyAs1,dataVampEu1, dataTeamMode] = [[], [],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+	var [dataEu1, dataEu2, dataEu3, dataEu4, dataNa1, dataNa2, dataNa3, dataNa4, dataTk, dataWa, dataSg, dataSd, dataLegacyEu1, dataLegacyNa1, dataLegacyAs1,dataVampEu1, dataVampNa1, dataVampAs1, dataTeamMode, dataSea, dataZma, dataOrdie, dataHmm] = [[], [],[],[],[],[],[],[],[],[],[],[],[],[],[]];
 	var gameLeaderBoard = {translate: {x: 0, y: 0}, img: LBBACK, can: createCanvas(200, 400)};
 	const canvas = createCanvas(200, 265), ctx = canvas.getContext('2d');
-	var packetMsg = "__`Argument list for command` **`'.lb'`**`:`__\n `[eu1, eu2, eu3, eu4, na1, na2, na3, na4, tk1]`\n `[legacyEu, legacyNa, legacyAs]`\n `[vampEu]`\n `[teammode]`\n\n Lower Case and Upper case Letters are allowed: example `.lb LEGACYEU`";
+	var packetMsg = "__`Argument list for command` **`'.lb'`**`:`__\n `[eu1, eu2, eu3, eu4, na1, na2, na3, na4, wa1, tk1, sg1, sd1]`\n `[legacyEu, legacyNa, legacyAs]`\n `[vampEu, vampNa, vampAs]`\n `[teammode, seamode]`\n `[zma, pvpordie, arenaofhm]`\n\n Lower Case and Upper case Letters are allowed: example `.lb LEGACYEU`";
 	/*VARIABLES*/
 	
 	/*INIT*/
@@ -115,6 +115,18 @@ class socketFinder {
 						fs.writeFileSync('./images/TK1.png', buffer);
 						dataTk = c[4].length;
 						break;
+						case "sg1":
+						fs.writeFileSync('./images/SG1.png', buffer);
+						dataSg = c[4].length;
+						break;
+						case "sd1":
+						fs.writeFileSync('./images/SD1.png', buffer);
+						dataSd = c[4].length;
+						break;
+						case "wa1":
+						fs.writeFileSync('./images/WA1.png', buffer);
+						dataWa = c[4].length;
+						break;
 						case "legacyeu1":
 						fs.writeFileSync('./images/LEGACYEU.png', buffer);
 						dataLegacyEu1 = c[4].length;
@@ -131,9 +143,33 @@ class socketFinder {
 						fs.writeFileSync('./images/VAMPEU.png', buffer);
 						dataVampEu1 = c[4].length;
 						break;
+						case "vampna1":
+						fs.writeFileSync('./images/VAMPNA.png', buffer);
+						dataVampNa1 = c[4].length;
+						break;
+						case "vampas1":
+						fs.writeFileSync('./images/VAMPAS.png', buffer);
+						dataVampAs1 = c[4].length;
+						break;
 						case "teammode":
 						fs.writeFileSync('./images/TEAMMODE.png', buffer);
 						dataTeamMode = c[4].length;
+						break;
+						case "seamode":
+							fs.writeFileSync('./images/SEAMODE.png', buffer);
+							dataSea = c[4].length;
+						break;
+							case "zma":
+							fs.writeFileSync('./images/ZMA.png', buffer);
+							dataZma = c[4].length;
+						break;
+							case "arenaofhm":
+							fs.writeFileSync('./images/ARENAOFHM.png', buffer);
+							dataHmm = c[4].length;
+						break;
+							case "pvpordie":
+							fs.writeFileSync('./images/PVPORDIE.png', buffer);
+							dataOrdie = c[4].length;
 						break;
 					}
 					break;
@@ -168,13 +204,13 @@ client.on('message', message => {
 				   if(message.channel.id != 864585644034752583) return (console.log('Wrong channel!', message.author.username), message.delete(), message.reply("You can use it only at here: discord.gg/pSauEbtMTe").then(msg => {setTimeout(() => {msg.delete()},15000)}))	
 				   if(args[1]) {
                 switch (args[1].toLowerCase()) {
-                    case "eu1":
+                    			case "eu1":
 					send(message, "eu1", dataEu1);
-                    break;
-                    case "eu2":
+                    			break;
+                   			case "eu2":
 					send(message, "eu2", dataEu2);
-                    break;
-                    case "eu3":
+                    			break;
+                    			case "eu3":
 					send(message, "eu3", dataEu3);
 					break;
 					case "eu4":
@@ -192,8 +228,17 @@ client.on('message', message => {
 					case "na4":
 					send(message, "na4", dataNa4);
 					break;
+					case "wa1":
+					send(message, "wa1", dataWa);
+					break;
 					case "tk1":
 					send(message, "tk1", dataTk);
+					break;
+					case "sg1":
+					send(message, "sg1", dataSg);
+					break;
+					case "sd1":
+					send(message, "sd1", dataSd);
 					break;
 					case "legacyeu":
 					send(message, "legacyeu", dataLegacyEu1);
@@ -207,8 +252,26 @@ client.on('message', message => {
 					case "vampeu":
 					send(message, "vampeu", dataVampEu1);
 					break;
+					case "vampna":
+					send(message, "vampna", dataVampNa1);
+					break;
+					case "vampas":
+					send(message, "vampas", dataVampAs1);
+					break;
 					case "teammode":
 					send(message, "teammode", dataTeamMode);
+					break;
+					case "seamode":
+					send(message, "seamode", dataSea);
+					break;
+					case "arenaofhm":
+					send(message, "arenaofhm", dataHmm);
+					break;
+					case "zma":
+					send(message, "zma", dataZma);
+					break;
+					case "pvpordie":
+					send(message, "pvpordie", dataOrdie);
 					break;
 					default:
 					 message.reply(packetMsg).then(msg => {
@@ -254,26 +317,35 @@ client.user.setPresence({
 
 					setInterval(() => {
 						setTimeout(()=> {
-					createBots("wss://frankfurt3.starve.io/server-eu-1", "eu1");
-					createBots("wss://frankfurt3.starve.io/server-eu-2", "eu2");
-					createBots("wss://frankfurt2.starve.io/server-eu-3", "eu3");
-					createBots("wss://frankfurt3.starve.io/server-eu-4", "eu4");
-					createBots("wss://toronto3.starve.io/server-na-1", "na1");
-					createBots("wss://toronto3.starve.io/server-na-2", "na2");
-					createBots("wss://toronto3.starve.io/server-na-3", "na3");
-					console.log("1")
+							createBots("wss://frankfurt3.starve.io/server-eu-1", "eu1");
+							createBots("wss://frankfurt3.starve.io/server-eu-2", "eu2");
+							createBots("wss://frankfurt2.starve.io/server-eu-3", "eu3");
+							createBots("wss://frankfurt3.starve.io/server-eu-4", "eu4");
+							createBots("wss://toronto3.starve.io/server-na-1", "na1");
+							createBots("wss://toronto3.starve.io/server-na-2", "na2");
+							createBots("wss://toronto3.starve.io/server-na-3", "na3");
+			                		createBots("wss://sydney1.starve.io/server-au1", "sd1");
+							createBots("wss://singapore2.starve.io/server-as3", "sg1");
+							createBots("wss://fremont3.starve.io/server-wa", "wa1");
 						}, 1000)
 						setTimeout(() => {
-					createBots("wss://toronto3.starve.io/server-na-4", "na4");
-					createBots("wss://tokyo3.starve.io/server-as2", "tk1");
-					createBots("wss://frankfurt2.starve.io/server-eu-forest-1", "legacyeu1");
-					createBots("wss://toronto1.starve.io/server-na-forest-1", "legacyna1");
-					createBots("wss://singapore1.starve.io/server-as-forest-1", "legacyas1");
-					createBots("wss://frankfurt2.starve.io/server712", "teammode");
-					createBots("wss://frankfurt2.starve.io/server-eu-vampire-1", "vampeu1");
-					console.log("2")
+							createBots("wss://toronto3.starve.io/server-na-4", "na4");
+							createBots("wss://tokyo3.starve.io/server-as2", "tk1");
+							createBots("wss://frankfurt2.starve.io/server-eu-forest-1", "legacyeu1");
+							createBots("wss://toronto1.starve.io/server-na-forest-1", "legacyna1");
+							createBots("wss://singapore1.starve.io/server-as-forest-1", "legacyas1");
+							createBots("wss://frankfurt2.starve.io/server712", "teammode");
+							createBots("wss://frankfurt2.starve.io/server-eu-vampire-1", "vampeu1");
 						},11000)
-					}, 20000)
+						setTimeout(() => {
+							createBots("wss://toronto3.starve.io/server-na-vampire-1", "vampna1");
+							createBots("wss://singapore2.starve.io/server-as-vampire-1", "vampas1");
+							createBots("wss://frankfurt1.starve.io/server711", "seamode");
+							createBots("wss://dallas3.starve.io/server2022", "zma");
+							createBots("wss://frankfurt2.starve.io/server3029", "arenaofhm");
+							createBots("wss://dallas1.starve.io/server2100", "pvpordie");
+						},21000
+					}, 40000)
 function KEY_GEN(a, b, e, d, c, f) {
         a = (1013904223 + (1664525 * (a + 28824))) % 4294967296;
         b = (1013904223 + (1664525 * (13210 + b))) % 4294967296;
