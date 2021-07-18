@@ -344,7 +344,7 @@ client.user.setPresence({
 							createBots("wss://dallas3.starve.io/server2022", "zma");
 							createBots("wss://frankfurt2.starve.io/server3029", "arenaofhm");
 							createBots("wss://dallas1.starve.io/server2100", "pvpordie");
-						},21000
+						},21000)
 					}, 40000)
 function KEY_GEN(a, b, e, d, c, f) {
         a = (1013904223 + (1664525 * (a + 28824))) % 4294967296;
