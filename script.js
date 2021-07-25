@@ -34,7 +34,7 @@ class socketFinder {
     constructor(sURL, type, key, agent){
         this.ws = new WebSocket(sURL, {agent:agent});
 		const TYPE = type;
-        this.ws.addEventListener("open", (data) => {this.ws.send(JSON.stringify(["ds.gg/pSauEbtMTe", 3480 ,2920 ,52, "ys#[O;x\>c[", "10250dxO0O" ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0, null, key]));});
+        this.ws.addEventListener("open", (data) => {this.ws.send(JSON.stringify(["ds.gg/flux-starve", 3480 ,2920 ,52, "ys#[O;x\>c[", "10250dxO0O" ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0, null, key]));});
         this.ws.on('message', function (msg) {
             switch(typeof msg) {
                 case "string":
