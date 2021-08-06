@@ -809,7 +809,7 @@ client.on('ready', async () => {
         
         legacy = '#LEGACY MODE\n';
         legacy += '[SERVER] [NAME][LEVEL] [SCORE]\n';
-        legacy += topLeader(dataLegacyEu1, "EUROPE");
+        legacy += topLeader(dataLegacyEu1, "EUROPE ");
         legacy += topLeader(dataLegacyNa1, "NORT AM");
         legacy += topLeader(dataLegacyAs1, "ASIA   ");
 
