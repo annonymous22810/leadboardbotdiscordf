@@ -826,17 +826,17 @@ client.on('ready', async () => {
         channel_log.send(normal, {code: 'css'}).then(msg => {
             setTimeout(() => {
             msg.delete()
-            }, 19900);
+            }, 39900);
         })
         channel_log.send(legacy, {code: 'css'}).then(msg => {
             setTimeout(() => {
             msg.delete()
-            }, 19900);
+            }, 39900);
         })
         channel_log.send(vampire, {code: 'css'}).then(msg => {
             setTimeout(() => {
             msg.delete()
-            }, 19900);
+            }, 39900);
         })
         channel_log.send(other, {code: 'css'}).then(msg => {
             setTimeout(() => {
