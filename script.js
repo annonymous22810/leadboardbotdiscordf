@@ -769,52 +769,81 @@ client.on('ready', async () => {
     const channel_log = guild.channels.cache.get('868831696047444028');
 
 
-    function topLeader(dataa, server) {
+    function  topLeader(dataa, server) {
         var lead = [21, 0];
-        console.log(server)
         var players = dataa.sort((a,b) => b.p - a.p), player;
         if(dataa.length > 1) {
             for(let i = 0; i < 1; i++) {
                 var player = players[i];
-                lead.push(player.i, player.p, player.n)
-                console.log(lead)
+                lead.push(player.i, player.p, player.n, player.l);
             }
         }
-        var score, name, id;
+        var score, name, id, lvl;
         var a = lead;
         score = EZ_Score(a[3]);
         id = a[2];
         name = a[4];
-        return `#${server}\n= Top(1): ${name} |= Score: ${score}`;
+        lvl = a[5];
+        return `${server}   ${name}[${lvl}]       ${score}\n`;
     };
     
     setInterval(() => {
-        let message;
-    message =  topLeader(dataEu1, "EUROPE 1") + '\n';
-    message += topLeader(dataEu2, "EUROPE 2") + '\n';
-    message += topLeader(dataEu3, "EUROPE 3") + '\n';
-    message +=topLeader(dataEu4, "EUROPE 4") + '\n';
-    message +=topLeader(dataNa1, "NORTH AMERICA 1") + '\n';
-    message +=topLeader(dataNa2, "NORTH AMERICA 2") + '\n';
-    message +=topLeader(dataNa3, "NORTH AMERICA 3") + '\n';
-    message +=topLeader(dataNa4, "NORTH AMERICA 4") + '\n';
-    message +=topLeader(dataWa, "WEST AMERICA") + '\n';
-    message +=topLeader(dataTk, "TOKYO") + '\n';
-    message +=topLeader(dataSg, "SINGAPORE") + '\n';
-    message +=topLeader(dataSd, "SYDNEY") + '\n';
-    message +=topLeader(dataLegacyEu1, "LEGACY EUROPE") + '\n';
-    message +=topLeader(dataLegacyNa1, "LEGACY NORTH AMERICA") + '\n';
-    message +=topLeader(dataLegacyAs1, "LEGACY ASIA") + '\n';
-    message +=topLeader(dataVampEu1, "VAMPIRE EUROPE") + '\n';
-    message +=topLeader(dataVampNa1, "VAMPIRE NORTH AMERICA") + '\n';
-    message +=topLeader(dataVampAs1, "VAMPIRE ASIA") + '\n';
-    message +=topLeader(dataSea, "SEA MODE") + '\n';
-    channel_log.send(message, {code: 'md'}).then(msg => {
-        setTimeout(() => {
-        msg.delete()
-    }, 19900);
-    })
-    }, 20000)
+        let normal,
+        legacy,
+        vampire,
+        other;
+        normal = '#NORMAL MODE\n';
+        normal += '[SERVER] [NAME][LEVEL]   [SCORE]\n';
+        normal += topLeader(dataEu1, "EUROPE1");
+        normal += topLeader(dataEu2, "EUROPE2");
+        normal += topLeader(dataEu3, "EUROPE3");
+        normal += topLeader(dataEu4, "EUROPE4");
+        normal += topLeader(dataNa1, "NORT A1");
+        normal += topLeader(dataNa2, "NORT A2");
+        normal += topLeader(dataNa3, "NORT A3");
+        normal += topLeader(dataNa4, "NORT A4");
+        normal += topLeader(dataWa, "WEST AM");
+        normal += topLeader(dataTk, "TOKYO  ");
+        normal += topLeader(dataSg, "SINGAPO");
+        normal += topLeader(dataSd, "SYDNEY ");
+        
+        legacy = '#LEGACY MODE\n';
+        legacy += '[SERVER] [NAME] [SCORE]\n';
+        legacy += topLeader(dataLegacyEu1, "EUROPE");
+        legacy += topLeader(dataLegacyNa1, "NORT AM");
+        legacy += topLeader(dataLegacyAs1, "ASIA   ");
+
+        vampire = '#VAMPIRE MODE\n';
+        vampire += '[SERVER] [NAME] [SCORE]\n';
+        vampire += topLeader(dataVampEu1, "EUROPE ");
+        vampire += topLeader(dataVampNa1, "NORT AM");
+        vampire += topLeader(dataVampAs1, "ASIA   ");
+        
+        other = '#EXPERIMENTAL MODE\n';
+        other += '[SERVER] [NAME] [SCORE]\n';
+        other += topLeader(dataSea, "SEAMODE");
+    
+        channel_log.send(normal, {code: 'css'}).then(msg => {
+            setTimeout(() => {
+            msg.delete()
+            }, 19900);
+        })
+        channel_log.send(legacy, {code: 'css'}).then(msg => {
+            setTimeout(() => {
+            msg.delete()
+            }, 19900);
+        })
+        channel_log.send(vampire, {code: 'css'}).then(msg => {
+            setTimeout(() => {
+            msg.delete()
+            }, 19900);
+        })
+        channel_log.send(other, {code: 'css'}).then(msg => {
+            setTimeout(() => {
+            msg.delete()
+            }, 39900);
+        })
+        }, 40000)
     
 })
 
