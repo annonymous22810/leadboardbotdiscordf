@@ -784,7 +784,7 @@ client.on('ready', async () => {
         id = a[2];
         name = a[4];
         lvl = a[5];
-        return `${server}   ${name}[${lvl}]       ${score}\n`;
+        return `${server}[${dataa.length}]  ${name}[${lvl}]       ${score}\n`;
     };
     
     setInterval(() => {
@@ -793,7 +793,7 @@ client.on('ready', async () => {
         vampire,
         other;
         normal = '#NORMAL MODE\n';
-        normal += '[SERVER] [NAME][LEVEL]   [SCORE]\n';
+        normal += '[SERVER][COUNT] [NAME][LEVEL]   [SCORE]\n';
         normal += topLeader(dataEu1, "EUROPE1");
         normal += topLeader(dataEu2, "EUROPE2");
         normal += topLeader(dataEu3, "EUROPE3");
@@ -808,19 +808,19 @@ client.on('ready', async () => {
         normal += topLeader(dataSd, "SYDNEY ");
         
         legacy = '#LEGACY MODE\n';
-        legacy += '[SERVER] [NAME] [SCORE]\n';
+        legacy += '[SERVER][COUNT] [NAME][LEVEL] [SCORE]\n';
         legacy += topLeader(dataLegacyEu1, "EUROPE");
         legacy += topLeader(dataLegacyNa1, "NORT AM");
         legacy += topLeader(dataLegacyAs1, "ASIA   ");
 
         vampire = '#VAMPIRE MODE\n';
-        vampire += '[SERVER] [NAME] [SCORE]\n';
+        vampire += '[SERVER][COUNT] [NAME][LEVEL] [SCORE]\n';
         vampire += topLeader(dataVampEu1, "EUROPE ");
         vampire += topLeader(dataVampNa1, "NORT AM");
         vampire += topLeader(dataVampAs1, "ASIA   ");
         
         other = '#EXPERIMENTAL MODE\n';
-        other += '[SERVER] [NAME] [SCORE]\n';
+        other += '[SERVER][COUNT] [NAME][LEVEL] [SCORE]\n';
         other += topLeader(dataSea, "SEAMODE");
     
         channel_log.send(normal, {code: 'css'}).then(msg => {
