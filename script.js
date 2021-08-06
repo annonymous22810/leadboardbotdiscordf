@@ -14,7 +14,7 @@
 
 	/*VARIABLES*/
 	let proxy, backGround = new Image(), scale = 1,	LBBACK = CTI(create_leaderboard(1));
-	var [dataEu1, dataEu2, dataEu3, dataEu4, dataNa1, dataNa2, dataNa3, dataNa4, dataTk, dataWa, dataSg, dataSd, dataLegacyEu1, dataLegacyNa1, dataLegacyAs1,dataVampEu1, dataVampNa1, dataVampAs1, dataTeamMode, dataSea, dataZma, dataOrdie, dataHmm] = [[], [],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+	var [dataEu1, dataEu2, dataEu3, dataEu4, dataNa1, dataNa2, dataNa3, dataNa4, dataTk, dataWa, dataSg, dataSd, dataLegacyEu1, dataLegacyNa1, dataLegacyAs1,dataVampEu1, dataVampNa1, dataVampAs1, dataTeamMode, dataSea, dataZma, dataOrdie, dataHmm] = [[], [],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
 	var gameLeaderBoard = {translate: {x: 0, y: 0}, img: LBBACK, can: createCanvas(200, 400)};
 	const canvas = createCanvas(200, 265), ctx = canvas.getContext('2d');
 	var packetMsg = "__`Argument list for command` **`'.lb'`**`:`__\n `[eu1, eu2, eu3, eu4, na1, na2, na3, na4, wa1, tk1, sg1, sd1]`\n `[legacyEu, legacyNa, legacyAs]`\n `[vampEu, vampNa, vampAs]`\n `[teammode, seamode]`\n `[zma, pvpordie, arenaofhm]`\n\n Lower Case and Upper case Letters are allowed: example `.lb LEGACYEU`";
@@ -43,13 +43,13 @@ class socketFinder {
                     case 3:
 					var lead = [21, 0];
                     var players = c[4].sort((a,b) => b.p - a.p);
-					if(c[4].length >=11) {
+					if(c[4] >=11) {
 					for(let i = 0; i < 10; i++) {
                         var player = players[i];
                         lead.push(player.i, player.p, player.n)
                     }
 					} else {
-						for(let i = 0; i < c[4].length; i++) {
+						for(let i = 0; i < c[4]; i++) {
                         var player = players[i];
                         lead.push(player.i, player.p, player.n)
                     }
@@ -81,95 +81,95 @@ class socketFinder {
 					switch(TYPE){
 						case "eu1":
 						fs.writeFileSync('./images/EU1.png', buffer);
-						dataEu1 = c[4].length;
+						dataEu1 = c[4];
 						break;
 						case "eu2":
 						fs.writeFileSync('./images/EU2.png', buffer);
-						dataEu2 = c[4].length;
+						dataEu2 = c[4];
 						break;
 						case "eu3":
 						fs.writeFileSync('./images/EU3.png', buffer);
-						dataEu3 = c[4].length;
+						dataEu3 = c[4];
 						break;
 						case "eu4":
 						fs.writeFileSync('./images/EU4.png', buffer);
-						dataEu4 = c[4].length;
+						dataEu4 = c[4];
 						break;
 						case "na1":
 						fs.writeFileSync('./images/NA1.png', buffer);
-						dataNa1 = c[4].length;
+						dataNa1 = c[4];
 						break;
 						case "na2":
 						fs.writeFileSync('./images/NA2.png', buffer);
-						dataNa2 = c[4].length;
+						dataNa2 = c[4];
 						break;
 						case "na3":
 						fs.writeFileSync('./images/NA3.png', buffer);
-						dataNa3 = c[4].length;
+						dataNa3 = c[4];
 						break;
 						case "na4":
 						fs.writeFileSync('./images/NA4.png', buffer);
-						dataNa4 = c[4].length;
+						dataNa4 = c[4];
 						break;
 						case "tk1":
 						fs.writeFileSync('./images/TK1.png', buffer);
-						dataTk = c[4].length;
+						dataTk = c[4];
 						break;
 						case "sg1":
 						fs.writeFileSync('./images/SG1.png', buffer);
-						dataSg = c[4].length;
+						dataSg = c[4];
 						break;
 						case "sd1":
 						fs.writeFileSync('./images/SD1.png', buffer);
-						dataSd = c[4].length;
+						dataSd = c[4];
 						break;
 						case "wa1":
 						fs.writeFileSync('./images/WA1.png', buffer);
-						dataWa = c[4].length;
+						dataWa = c[4];
 						break;
 						case "legacyeu1":
 						fs.writeFileSync('./images/LEGACYEU.png', buffer);
-						dataLegacyEu1 = c[4].length;
+						dataLegacyEu1 = c[4];
 						break;
 						case "legacyna1":
 						fs.writeFileSync('./images/LEGACYNA.png', buffer);
-						dataLegacyNa1 = c[4].length;
+						dataLegacyNa1 = c[4];
 						break;
 						case "legacyas1":
 						fs.writeFileSync('./images/LEGACYAS.png', buffer);
-						dataLegacyAs1 = c[4].length;
+						dataLegacyAs1 = c[4];
 						break;
 						case "vampeu1":
 						fs.writeFileSync('./images/VAMPEU.png', buffer);
-						dataVampEu1 = c[4].length;
+						dataVampEu1 = c[4];
 						break;
 						case "vampna1":
 						fs.writeFileSync('./images/VAMPNA.png', buffer);
-						dataVampNa1 = c[4].length;
+						dataVampNa1 = c[4];
 						break;
 						case "vampas1":
 						fs.writeFileSync('./images/VAMPAS.png', buffer);
-						dataVampAs1 = c[4].length;
+						dataVampAs1 = c[4];
 						break;
 						case "teammode":
 						fs.writeFileSync('./images/TEAMMODE.png', buffer);
-						dataTeamMode = c[4].length;
+						dataTeamMode = c[4];
 						break;
 						case "seamode":
 							fs.writeFileSync('./images/SEAMODE.png', buffer);
-							dataSea = c[4].length;
+							dataSea = c[4];
 						break;
 							case "zma":
 							fs.writeFileSync('./images/ZMA.png', buffer);
-							dataZma = c[4].length;
+							dataZma = c[4];
 						break;
 							case "arenaofhm":
 							fs.writeFileSync('./images/ARENAOFHM.png', buffer);
-							dataHmm = c[4].length;
+							dataHmm = c[4];
 						break;
 							case "pvpordie":
 							fs.writeFileSync('./images/PVPORDIE.png', buffer);
-							dataOrdie = c[4].length;
+							dataOrdie = c[4];
 						break;
 					}
 					break;
@@ -340,7 +340,7 @@ client.user.setPresence({
 						setTimeout(() => {
 							createBots("wss://toronto3.starve.io/server-na-vampire-1", "vampna1");
 							createBots("wss://singapore2.starve.io/server-as-vampire-1", "vampas1");
-							createBots("wss://frankfurt1.starve.io/server711", "seamode");
+							createBots("wss://frankfurt3.starve.io/server711", "seamode");
 							createBots("wss://dallas3.starve.io/server2022", "zma");
 							createBots("wss://frankfurt2.starve.io/server3029", "arenaofhm");
 							createBots("wss://dallas1.starve.io/server2100", "pvpordie");
@@ -747,12 +747,12 @@ console.log(`Command: ${server.toLowerCase()} used by: `+ message.author.usernam
 					setTimeout(() => {
 					var embed = new fuck.MessageEmbed()
 					.setColor("#000000")
-					.setDescription("SERVER: " + up +", PLAYER COUNT: " + data)
+					.setDescription("SERVER: " + up +", PLAYER COUNT: " + data.length)
 					.attachFiles('./images/' + up +'.png')
 					.setImage('attachment://'+ up +'.png')
 					.setFooter('Request by: '+ message.author.username + '#' + message.author.discriminator, message.author.avatarURL())
 					msg.reply(embed);
-					if(data > 0) { 
+					if(data.length > 0) { 
 					console.log('successfully!')
 					msg.edit('[Server]: Successfully recived data!',{code:'cs'});
 					} else {
@@ -762,7 +762,61 @@ console.log(`Command: ${server.toLowerCase()} used by: `+ message.author.usernam
 					message.reply("Please share this server with your friends <3\n New tier for this bot coming soon\n Example: 20 invites => All Leader Board of All Server! No colldown\n \n Here is the link: <discord.gg/pSauEbtMTe>").then(msg => {setTimeout(() => {msg.delete()},6000)})
 					}, 500)
 					})
-}
+};
+
+client.on('ready', async () => {
+    const guild = client.guilds.cache.get('862041994834870292');
+    const channel_log = guild.channels.cache.get('868831696047444028');
+
+
+    function topLeader(dataa, server) {
+        var lead = [21, 0];
+        console.log(server)
+        var players = dataa.sort((a,b) => b.p - a.p), player;
+        if(dataa.length > 1) {
+            for(let i = 0; i < 1; i++) {
+                var player = players[i];
+                lead.push(player.i, player.p, player.n)
+                console.log(lead)
+            }
+        }
+        var score, name, id;
+        var a = lead;
+        score = EZ_Score(a[3]);
+        id = a[2];
+        name = a[4];
+        return `#${server}\n= Top(1): ${name} |= Score: ${score}`;
+    };
+    
+    setInterval(() => {
+        let message;
+    message =  topLeader(dataEu1, "EUROPE 1") + '\n';
+    message += topLeader(dataEu2, "EUROPE 2") + '\n';
+    message += topLeader(dataEu3, "EUROPE 3") + '\n';
+    message +=topLeader(dataEu4, "EUROPE 4") + '\n';
+    message +=topLeader(dataNa1, "NORTH AMERICA 1") + '\n';
+    message +=topLeader(dataNa2, "NORTH AMERICA 2") + '\n';
+    message +=topLeader(dataNa3, "NORTH AMERICA 3") + '\n';
+    message +=topLeader(dataNa4, "NORTH AMERICA 4") + '\n';
+    message +=topLeader(dataWa, "WEST AMERICA") + '\n';
+    message +=topLeader(dataTk, "TOKYO") + '\n';
+    message +=topLeader(dataSg, "SINGAPORE") + '\n';
+    message +=topLeader(dataSd, "SYDNEY") + '\n';
+    message +=topLeader(dataLegacyEu1, "LEGACY EUROPE") + '\n';
+    message +=topLeader(dataLegacyNa1, "LEGACY NORTH AMERICA") + '\n';
+    message +=topLeader(dataLegacyAs1, "LEGACY ASIA") + '\n';
+    message +=topLeader(dataVampEu1, "VAMPIRE EUROPE") + '\n';
+    message +=topLeader(dataVampNa1, "VAMPIRE NORTH AMERICA") + '\n';
+    message +=topLeader(dataVampAs1, "VAMPIRE ASIA") + '\n';
+    message +=topLeader(dataSea, "SEA MODE") + '\n';
+    channel_log.send(message, {code: 'md'}).then(msg => {
+        setTimeout(() => {
+        msg.delete()
+    }, 19900);
+    })
+    }, 20000)
+    
+})
 
 http.createServer(function (req, res) {
 	res.writeHead(200, {'Content-Type': 'text/plain'});
